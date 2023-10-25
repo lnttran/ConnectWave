@@ -8,7 +8,12 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  secret: process.env.SECRET as string
+  secret: process.env.SECRET as string,
+  callbacks: {
+    async signIn({ account, profile }) {
+      return true;
+    }
+  }
 })
 
 export { handler as GET, handler as POST }
