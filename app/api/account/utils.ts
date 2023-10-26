@@ -1,6 +1,6 @@
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/singleton/prisma";
 import { AccountType, User } from "@prisma/client";
-import { AccountUpdateError, AccountUpdateErrors } from "./error";
+import { AccountUpdateError, AccountUpdateErrors } from "./schema";
 
 interface UpdateUserData {
   email: string;

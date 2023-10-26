@@ -1,18 +1,6 @@
-import prisma from "@/lib/prisma";
-import NextAuth from "next-auth/next"
-import GoogleProvider from "next-auth/providers/google"
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
-
-export const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    }),
-  ],
-  adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXTAUTH_SECRET
-}
+import prisma from "@/lib/singleton/prisma";
+import NextAuth from "next-auth/next";
+import { authOptions } from "@/app/config/authOption";
 
 const handler = NextAuth({
   ...authOptions,
@@ -20,19 +8,19 @@ const handler = NextAuth({
     async session({ session, user }) {
       const account = await prisma.user.findUnique({
         where: {
-          email: user.email as string
-        }
+          email: user.email as string,
+        },
       });
-      
+
       return {
         ...session,
         user: {
           ...session.user,
         },
-        account: account
-      }
+        account: account,
+      };
     },
-  }
-})
+  },
+});
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };
