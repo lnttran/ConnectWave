@@ -65,6 +65,12 @@ export function Appbar() {
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <Link href={"/dashboard"}>Dashboard</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href={"/dashboard/checkout"}>Add Funds</Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <SignInButton />
         </NavigationMenuItem>
         <NavigationMenuItem>
