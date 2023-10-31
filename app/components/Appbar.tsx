@@ -147,3 +147,12 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = "ListItem"
+
+
+// colors: {
+//   'text': '#030203',
+//   'background': '#ffffff',
+//   'primary': '#6ba875',
+//   'secondary': '#dceae5',
+//   'accent': '#719d5c',
+//  },
