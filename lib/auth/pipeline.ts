@@ -6,7 +6,7 @@ export type MiddlewareHandler = (
 export type MiddlewareFunction = (
   request: Request,
   response: Response
-) => Promise<Response | undefined>;
+) => Promise<Response | void | undefined>;
 
 export const createMiddlewarePipeline = (
   middlewares: MiddlewareFunction[],

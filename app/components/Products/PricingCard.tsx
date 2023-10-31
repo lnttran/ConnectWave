@@ -17,7 +17,7 @@ function PricingCard({ price }: PricingCardProps) {
     e.preventDefault();
 
     const { data } = await axios.post(
-      "/api/payment",
+      "/api/checkout/payment",
       {
         priceId: price.id,
       },

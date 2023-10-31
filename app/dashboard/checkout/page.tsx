@@ -1,13 +1,27 @@
 "use client";
+import { useSession } from "next-auth/react";
 import PricingCard from "@/app/components/Products/PricingCard";
 import React, { useEffect } from "react";
+import { redirect } from "next/navigation";
 
 export default function Checkout() {
   const [prices, setPrices] = React.useState<object[]>([]);
+  const { data: session, status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/");
+    },
+  });
 
   useEffect(() => {
-    fetchPrices();
-  }, []);
+    if (status === "authenticated") {
+      fetchPrices();
+    }
+  }, [status]);
+
+  if (status === "loading") {
+    return "Loading or not authenticated...";
+  }
 
   const fetchPrices = async () => {
     await fetch("/api/checkout/product")
@@ -17,6 +31,7 @@ export default function Checkout() {
         console.log(data);
       });
   };
+
   return (
     <section className="w-full">
       <div className="mx-auto max-w-4xl text-center mt-10 items-center">

@@ -34,16 +34,27 @@ model Session {
 }
 
 model User {
-  id            String       @id @default(cuid())
-  name          String?
-  email         String?      @unique
-  emailVerified DateTime?
-  image         String?
-  password      String?
-  username      String?      @unique
-  accountType   AccountType  @default(Undecided)
-  accounts      Account[]
-  sessions      Session[]
+  id             String           @id @default(cuid())
+  name           String?
+  email          String?          @unique
+  emailVerified  DateTime?
+  image          String?
+  password       String?
+  username       String?          @unique
+  accountType    AccountType      @default(Undecided)
+  accounts       Account[]
+  sessions       Session[]
+  creditBalance  Float            @default(0)
+  paymentIntents PaymentIntents[]
+}
+
+model PaymentIntents {
+  id             String @id @default(cuid())
+  intent_id      String @unique
+  user_id        String @default(cuid())
+  amountCaptured Float  @default(0)
+  amountRefunded Float  @default(0)
+  user           User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

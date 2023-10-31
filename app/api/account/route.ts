@@ -1,10 +1,21 @@
-import { updateUser } from "./utils";
+import { getBalance, updateUser } from "./utils";
 import { accountUpdateSchema } from "./schema";
 import {
   middlewareAuthorizedSession,
   middlewareRequestLogger,
 } from "@/lib/auth/middlewareMethods";
 import { createMiddlewarePipeline } from "@/lib/auth/pipeline";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/config/authOption";
+
+async function GET(request: Request, response: Response) {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    const balance = await getBalance({ email: session.user!.email as string });
+    return new Response(JSON.stringify(balance), { status: 200 });
+  }
+}
 
 async function POST(request: Request, response: Response) {
   // Be protected by default hehe
@@ -31,12 +42,12 @@ async function POST(request: Request, response: Response) {
 }
 
 const handler = createMiddlewarePipeline(
-  [middlewareRequestLogger, middlewareAuthorizedSession],
+  [middlewareAuthorizedSession],
   async (request, response) => {
     if (request.method === "POST") {
       POST(request, response);
     } else if (request.method === "GET") {
-      return new Response("Hello");
+      return GET(request, response);
     }
   }
 );

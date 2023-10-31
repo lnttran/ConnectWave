@@ -6,8 +6,12 @@ export const middlewareRequestLogger: MiddlewareFunction = async (
   request: Request,
   response: Response
 ) => {
-  const data = await request.json();
-  console.log("Logging: " + JSON.stringify(data));
+  // try {
+  //   const data = await request.json();
+  //   console.log("Logging: " + JSON.stringify(data));
+  // } catch (e) {
+  //   console.log("Error while loggin: " + e);
+  // }
 
   return response;
 };
@@ -18,5 +22,4 @@ export const middlewareAuthorizedSession: MiddlewareFunction = async () => {
     console.log("Unauthorized");
     return new Response(null, { status: 401, statusText: "Unauthorized" });
   }
-  console.log("Authorized");
 };
