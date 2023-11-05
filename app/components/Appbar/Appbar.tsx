@@ -68,7 +68,6 @@ export function Appbar() {
             <SignInButton
               onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
               label="Sign In"
-              className="text-red-600"
             />
           </NavigationMenuItem>
         )}

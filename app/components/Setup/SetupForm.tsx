@@ -112,6 +112,7 @@ export default function SetupForm() {
                   id="username"
                   placeholder="Your username"
                   {...register("username")}
+                  className="bg-transparent"
                 />
               </div>
               <div className="flex flex-col space-y-2.5">
@@ -126,8 +127,8 @@ export default function SetupForm() {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select" />
+                          <SelectTrigger className="bg-transparent">
+                            <SelectValue placeholder="Select"/>
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent position="popper">
