@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Card } from './Card';
-
+import {motion} from "framer-motion"
 
 function Html() {
     return (
@@ -13,7 +13,8 @@ function Html() {
                 <div className='flex flex-col w-[100vw] h-[100vh]'>
                     <div className='m-10 space-y-10 h-full'>
                         <h1 className=" font-logo-font font-extrabold dark:text-gray-50 text-black mt-2 ml-2 sm:text-xl md:text-5xl lg:text-[10rem] sm:mt-4 sm:ml-4 left-[20vw] max-w-4xl">What we do</h1>
-                        <div className="flex flex-row w-full justify-around">
+                        <div className="flex flex-row w-full justify-around"
+                        >
                             <Card>
                                 <h1 className="font-bold lg:text-[2rem] pb-8" >Increase Youtube Subscribers </h1>
                                 We are providing YouTube real subscribers. You can take advantage of both free YouTube subscribers and paid YouTube subscribers. You will get paid subscribers at a much faster speed as compared to free YouTube subscribers.
