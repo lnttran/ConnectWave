@@ -45,7 +45,7 @@ const handler = createMiddlewarePipeline(
   [middlewareAuthorizedSession],
   async (request, response) => {
     if (request.method === "POST") {
-      POST(request, response);
+      return POST(request, response);
     } else if (request.method === "GET") {
       return GET(request, response);
     }

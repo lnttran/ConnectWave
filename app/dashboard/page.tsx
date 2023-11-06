@@ -21,7 +21,7 @@ export default function Dashboard() {
 
     if (accountType == "undecided") {
       return (
-        <div className="flex justify-center min-h-screen h-full items-center">
+        <div className="flex justify-center min-h-screen h-full items-center bg-background">
           <AnimatePresence>
             <motion.div
               initial={{ opacity: 0 }}
