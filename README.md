@@ -34,4 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Demo Videos
+
+<video controls="" width="800" height="500" muted="" loop="" autoplay="">
+<source src="https://github.com/lnttran/ConnectWave/blob/Character/demo-landing.mp4" type="video/mp4">
+</video>
+
 # ConnectWave
