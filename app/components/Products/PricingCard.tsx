@@ -31,7 +31,7 @@ function PricingCard({ price }: PricingCardProps) {
   };
 
   return (
-    <Card className="w-fit h-fit px-3 py-10 shadow-2xl">
+    <Card className="w-fit h-fit px-8 py-10 mx-20 shadow-2xl">
       <CardHeader className="p-5">
         <CardTitle>Pricing</CardTitle>
         <CardDescription>Add credit to your account</CardDescription>

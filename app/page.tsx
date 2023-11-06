@@ -7,7 +7,7 @@ import { AccumulativeShadows, RandomizedLight } from "@react-three/drei";
 export default function Home() {
   const [perfSucks, degrade] = useState(false)
   return (
-    <div style={{ width: "100vw", height: "250vh" }} className="bg-background" >
+    <div className="bg-background w-[100vw] h-[100vh]" >
       <Canvas shadows
       // //device pixel ratio and control revolution of canvas
       // Tran set variable, xong roi xai no nhu la tailwind luon

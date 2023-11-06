@@ -21,5 +21,5 @@ export default function BalanceView() {
     return <p>Loading</p>;
   }
 
-  return <div>Credits: {balanceCredit}</div>;
+  return <div>Credits: ${balanceCredit}</div>;
 }

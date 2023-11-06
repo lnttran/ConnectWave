@@ -7,15 +7,11 @@ import { Objects } from './components/Objects'
 import { Particles } from './components/Particles'
 import { Hunter, Planet, Quester } from './components/planet'
 import { EffectComposer, DepthOfField, Bloom, Vignette } from '@react-three/postprocessing'
+import { AccordionDemo } from './components/accordionPage'
 
 function Scene() {
-    const { mouse, camera } = useThree();
-
-    useFrame(() => {
-    })
-
     return (
-        <ScrollControls pages={2}>
+        <ScrollControls pages={4}>
             <Scroll>
                 <>
                     <EffectComposer>

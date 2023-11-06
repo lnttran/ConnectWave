@@ -19,8 +19,8 @@ export function Planet() {
         //tui thấy cái gì hay nè thì tui mới hỏi Sơn nó làm cái gì . Tui dịnh bỏ dothử coi nó thay doi cái gì 
         // này qua tui thử của chat gpt rồi mà nó bị khùng khùng á nên cái này nó dễ hơn á fen :)))
         planetRef.current.rotation.y = planetRef.current.rotation.y + 1 / 150
-        planetRef.current.scale.set(1.8, 1.8, 1.8);
-        planetRef.current.position.set(size.width * 0.001, 2.3, -0.7); // Adjust the position as needed
+        planetRef.current.scale.set(3.5, 3.5, 3.5);
+        planetRef.current.position.set(size.width * 0.0014, 0.4, -0.7); // Adjust the position as needed
     });
 
     return (
@@ -87,7 +87,7 @@ export function Quester() {
         // này qua tui thử của chat gpt rồi mà nó bị khùng khùng á nên cái này nó dễ hơn á fen :)))
         // questerRef.current.rotation.y = questerRef.current.rotation.y + 1 / 150
         questerRef.current.rotation.set(0.2, 1, 0);
-        questerRef.current.scale.set(2, 2, 2);
+        questerRef.current.scale.set(4, 4, 4);
         questerRef.current.position.set(size.width * -0.0008, -5, -0.7); // Adjust the position as needed
     });
 

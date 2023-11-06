@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 const particleLightColors = ['#673ab7', '#f4b677', 'orange', 'blue', '#8bc34a', 'purple']
 const particleDarkColors = ["#fff"]
 
-function Particles({ size = 5000 }) {
+function Particles({ size = 8000 }) {
     const { width, height } = useThree((state) => state.viewport)
     const { theme } = useTheme();
 
@@ -23,7 +23,7 @@ function Particles({ size = 5000 }) {
             {Array.from({ length: size }).map((_, i) => (
                 <Point
                     key={i}
-                    position={[(0.5 - Math.random()) * width * 4, 0.5 * height + Math.random() ** 0.25 * height * -3, (1 - Math.random()) * -5]}
+                    position={[(0.5 - Math.random()) * width * 4, 0.5 * height * 2 + Math.random() ** 0.25 * height * 2 * -3, (1 - Math.random()) * -5]}
                     color={getParticleColor()}
                 />
             ))}

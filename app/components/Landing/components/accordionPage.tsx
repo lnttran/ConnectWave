@@ -7,7 +7,7 @@ import {
 
 export function AccordionDemo() {
     return (
-        <Accordion type="single" collapsible className="w-full text-black font-logo-font lg:text-[2rem] p-10">
+        <Accordion type="single" collapsible className="w-full dark:bg-[#2F3046] bg-white rounded-3xl dark:text-gray-50 text-gray-900 font-logo-font lg:text-[2rem] p-10">
             <AccordionItem value="item-1">
                 <AccordionTrigger >Why chose us?</AccordionTrigger>
                 <AccordionContent >

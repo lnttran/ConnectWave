@@ -48,9 +48,10 @@ export function Appbar() {
         Connect Wave
       </NavigationMenuList>
       <NavigationMenuList className="space-x-10">
+        <NavigationLinkButton href={"/"} title={"Home"} />
         {session && session.user ? (
           <>
-          <NavigationLinkButton href={"/dashboard"} title={"Dashboard"} />
+            <NavigationLinkButton href={"/dashboard"} title={"Dashboard"} />
             <NavigationLinkButton
               href={"/dashboard/checkout"}
               title={"Add Funds"}
@@ -62,7 +63,6 @@ export function Appbar() {
           </>
         ) : (
           <>
-            <NavigationLinkButton href={"/"} title={"Home"} />
             <NavigationLinkButton href={"/"} title={"About Us"} />
             <NavigationLinkButton href={"/"} title={"Contact"} />
             <NavigationMenuItem>

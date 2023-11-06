@@ -12,7 +12,7 @@ import Box2 from './animation/box';
 function Html() {
     return (
 
-        <>
+        <div>
             <h1 className="absolute font-logo-font font-extrabold dark:text-gray-50 text-black mt-2 ml-2 sm:text-3xl md:text-xl lg:text-9xl sm:mt-4 sm:ml-4 top-[20vh] left-[5vw]">ConnectWave</h1>
             <h2 className="relative dark:text-gray-50 text-black mt-2 ml-2 sm:text-xl sm:mt-4 sm:ml-4 font-logo-font top-[430px] left-[130px] max-w-4xl lg:text-[28px] lg:leading-8">Experience the magic of our service, designed to help your YouTube views and subscribers count grow organically. Enhance your online presence and connect with your audience effortlessly</h2>
 
@@ -35,13 +35,17 @@ function Html() {
                         </div>
                     </div>
                 </div>
-                <div className='relative top-[0vh] w-full h-96 bg-black'><Box2 /></div>
-
-                <div className="relative bg-white m-10 rounded-3xl top-[0vh] " >
-                    <AccordionDemo />
+                <div className='relative top-[10vh] w-full'>
+                    <h1 className="font-logo-font font-extrabold dark:text-gray-50 text-black mt-2 ml-2 sm:text-xl md:text-5xl lg:text-[10rem] sm:mt-4 sm:ml-4 left-[20vw] max-w-9xl mb-10">How does it work?</h1>
+                    <Box2 />
                 </div>
 
-
+                <div className='relative top-[50vh] w-full'>
+                    <h1 className="font-logo-font font-extrabold dark:text-gray-50 text-black mt-2 ml-2 sm:text-xl md:text-5xl lg:text-[10rem] sm:mt-4 sm:ml-4 left-[20vw] max-w-9xl mb-10">FAQs</h1>
+                    <div className="relative bg-white m-10 rounded-3xl" >
+                        <AccordionDemo />
+                    </div>
+                </div>
                 {/* <TypeAnimation
                     splitter={(str) => str.split(/(?= )/)}
                     sequence={[
@@ -53,8 +57,7 @@ function Html() {
                     style={{ fontSize: '2em', display: 'inline-block' }}
                 /> */}
             </div>
-            <Footer />
-        </>
+        </div>
     );
 }
 
