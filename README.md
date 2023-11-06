@@ -42,3 +42,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 </video>
 
 # ConnectWave
+![demo-landing](https://github.com/lnttran/ConnectWave/assets/106687431/606aed2e-ae7e-481f-ae29-557ef6fbffe9)
