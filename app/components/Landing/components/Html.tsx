@@ -40,7 +40,7 @@ function Html() {
                     <Box2 />
                 </div>
 
-                <div className='relative top-[50vh] w-full'>
+                <div className='relative top-[50vh] w-full pb-10'>
                     <h1 className="font-logo-font font-extrabold dark:text-gray-50 text-black mt-2 ml-2 sm:text-xl md:text-5xl lg:text-[10rem] sm:mt-4 sm:ml-4 left-[20vw] max-w-9xl mb-10">FAQs</h1>
                     <div className="relative bg-white m-10 rounded-3xl" >
                         <AccordionDemo />
