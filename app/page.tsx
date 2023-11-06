@@ -4,11 +4,10 @@ import { Suspense, useState } from "react";
 import Iframe from "react-iframe";
 import { Scene } from "./components/Landing/Scene";
 import { AccumulativeShadows, RandomizedLight } from "@react-three/drei";
-
 export default function Home() {
   const [perfSucks, degrade] = useState(false)
   return (
-    <div style={{ width: "100vw", height: "200vh" }} className="bg-background" >
+    <div style={{ width: "100vw", height: "250vh" }} className="bg-background" >
       <Canvas shadows
       // //device pixel ratio and control revolution of canvas
       // Tran set variable, xong roi xai no nhu la tailwind luon
@@ -18,7 +17,7 @@ export default function Home() {
       // camera={{ position: [0, 0.9, 10], fov: 50 }}
       >
         <ambientLight />
-        <directionalLight color="red" intensity={30} />
+        <directionalLight color="gray" intensity={10} />
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
