@@ -38,6 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Demo Videos
 
 ![demo-landing](https://github.com/lnttran/ConnectWave/assets/106687431/bfcd79e8-f453-4cfc-b6f9-3208bc157aa0)
+
 ![add-funds](https://github.com/lnttran/ConnectWave/assets/106687431/3b42d42c-8651-467d-a16f-7fbe067d7030)
 
 # ConnectWave
