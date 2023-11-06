@@ -27,7 +27,6 @@ import React, { useEffect, useState } from "react";
 import { Form, FormField, FormItem, FormControl } from "@/components/ui/form";
 import { toast } from "react-toastify";
 import { Loader2 } from "lucide-react";
-import { METHODS } from "http";
 import { redirect } from "next/navigation";
 
 const formSchema = z.object({
@@ -52,6 +51,7 @@ const formSchema = z.object({
 
 export default function SetupForm() {
   const { data: session, status } = useSession();
+  const [readyToRedirect, setReadyToRedirect] = useState(false);
 
   const [isOnLoad, setIsOnLoad] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,33 +78,35 @@ export default function SetupForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ ...values, email: session.user.email }),
-      })
-        .then((response) => {
-          setIsOnLoad(false);
-          if (!response.ok) {
-            toast.error("Something wrong happened");
-          }
-          return response.json();
-        })
-        .then((responseData) => {
-          setIsOnLoad(false);
-          redirect("/dashboard");
-        })
-        .catch((error) => {
-          // console.error('Error:', error);
-        });
+      }).then((response) => {
+        setIsOnLoad(false);
+        if (response.ok) {
+          // If response is OK, show the success toast
+          toast.success("Successfully selected your role!");
+        } else {
+          // If response is not OK, show the error toast
+          toast.error("Something wrong happened");
+        }
+        setReadyToRedirect(true);
+      });
     }
   }
 
+  const onError = (error: any, e: any) => {
+    console.log("Error");
+    console.log(error, e);
+    toast.error("An error occurred while processing your request.");
+  };
+
   return (
-    <Card className="w-fit h-fit p-20 shadow-2xl">
+    <Card className="w-fit h-fit p-20 shadow-2xl bg-transparent">
       <CardHeader className="p-5">
         <CardTitle>Setup your account</CardTitle>
         <CardDescription>Let's get it started</CardDescription>
       </CardHeader>
       <CardContent className="p-5">
         <Form {...form}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-2.5">
                 <Label htmlFor="name">Username</Label>
@@ -128,7 +130,7 @@ export default function SetupForm() {
                       >
                         <FormControl>
                           <SelectTrigger className="bg-transparent">
-                            <SelectValue placeholder="Select"/>
+                            <SelectValue placeholder="Select" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent position="popper">
@@ -142,15 +144,19 @@ export default function SetupForm() {
               </div>
             </div>
             <div className="flex justify-center pt-5">
-              <Button type="submit" disabled={isOnLoad}>
+              {readyToRedirect ? <Button disabled={isOnLoad} onClick={() => {
+                console.log("Click me")
+              }}>
+                Let's Hunting
+              </Button> : <Button type="submit" disabled={isOnLoad}>
                 {isOnLoad && (
                   <div className="flex items-center">
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Please wait
                   </div>
                 )}
-                {!isOnLoad && <p>Let's Hunting</p>}
-              </Button>
+                {!isOnLoad && <p>Complete</p>}
+              </Button>}
             </div>
           </form>
         </Form>

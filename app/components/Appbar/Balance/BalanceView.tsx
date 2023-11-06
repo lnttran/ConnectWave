@@ -9,7 +9,7 @@ export default function BalanceView() {
   useEffect(() => {
     if (balance) {
       console.log(balance);
-      setBalanceCredit(balance.creditBalance);
+      setBalanceCredit(balance.creditBalance / 100);
     }
   }, [balance]);
 

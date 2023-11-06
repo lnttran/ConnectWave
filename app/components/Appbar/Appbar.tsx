@@ -43,17 +43,14 @@ export function Appbar() {
 
   return (
     <NavigationMenu className="bg-[#f9ead5] dark:bg-[#0a0a2a] dark:text-white text-black">
-      <NavigationMenuList>
-        <span className="text-2xl font-logo-font font-extrabold mt-2 ml-1 sm:mt-4 sm:ml-1 ">
-          Connect Wave
-        </span>
+      <NavigationMenuList className="text-2xl font-logo-font font-extrabold mt-2 ml-1 sm:mt-4 sm:ml-1 ">
+        <img src="/ico.png" width="50" className="px-2" />
+        Connect Wave
       </NavigationMenuList>
       <NavigationMenuList className="space-x-10">
-        <NavigationLinkButton href={"/"} title={"Home"} />
-        <NavigationLinkButton href={"/"} title={"About Us"} />
-        <NavigationLinkButton href={"/"} title={"Contact"} />
         {session && session.user ? (
           <>
+          <NavigationLinkButton href={"/dashboard"} title={"Dashboard"} />
             <NavigationLinkButton
               href={"/dashboard/checkout"}
               title={"Add Funds"}
@@ -64,13 +61,19 @@ export function Appbar() {
             </NavigationMenuItem>
           </>
         ) : (
-          <NavigationMenuItem>
-            <SignInButton
-              onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
-              label="Sign In"
-            />
-          </NavigationMenuItem>
+          <>
+            <NavigationLinkButton href={"/"} title={"Home"} />
+            <NavigationLinkButton href={"/"} title={"About Us"} />
+            <NavigationLinkButton href={"/"} title={"Contact"} />
+            <NavigationMenuItem>
+              <SignInButton
+                onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
+                label="Sign In"
+              />
+            </NavigationMenuItem>
+          </>
         )}
+
         <NavigationMenuItem>
           <ModeToggle />
         </NavigationMenuItem>
