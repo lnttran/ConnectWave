@@ -37,9 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Demo Videos
 
-<video controls="" width="800" height="500" muted="" loop="" autoplay="">
-<source src="https://github.com/lnttran/ConnectWave/blob/Character/demo-landing.mp4" type="video/mp4">
-</video>
+![Uploading demo-landing.gif…]()
 
 # ConnectWave
-![demo-landing](https://github.com/lnttran/ConnectWave/assets/106687431/606aed2e-ae7e-481f-ae29-557ef6fbffe9)
