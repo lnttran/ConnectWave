@@ -19,46 +19,67 @@ import BalanceView from "./Balance/BalanceView";
 import Profile from "../Personal/Profile";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+const NavigationLinkButton: (props: {
+  href: string;
+  title: string;
+}) => React.ReactNode = (props) => {
+  return (
+    <NavigationMenuItem>
+      <Link
+        href={props.href}
+        legacyBehavior
+        passHref
+        className="font-logo-font text-xl"
+      >
+        {props.title}
+      </Link>
+    </NavigationMenuItem>
+  );
+};
 export function Appbar() {
   const { data: session } = useSession();
-  const buttonClassName = session && session.user ? 'text-red-600' : 'flex gap-4 ml-auto';
+  const buttonClassName =
+    session && session.user ? "text-red-600" : "flex gap-4 ml-auto";
 
   return (
     <NavigationMenu className="bg-[#f9ead5] dark:bg-[#0a0a2a] dark:text-white text-black">
-      <NavigationMenuList><span className="text-2xl font-logo-font font-extrabold mt-2 ml-1 sm:mt-4 sm:ml-1 ">Connect Wave</span></NavigationMenuList>
+      <NavigationMenuList className="text-2xl font-logo-font font-extrabold mt-2 ml-1 sm:mt-4 sm:ml-1 ">
+        <img src="/ico.png" width="50" className="px-2" />
+        Connect Wave
+      </NavigationMenuList>
       <NavigationMenuList className="space-x-10">
-        <NavigationMenuItem>
-          {/* <NavigationMenuTrigger>Getting sptarted</NavigationMenuTrigger> */}
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/dashboard" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <span className="font-logo-font text-xl">Getting started</span>
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <span className="font-logo-font text-xl">About Us</span>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <span className="font-logo-font text-xl"> Contact</span>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href={"/dashboard/checkout"} className="font-logo-font text-xl">Add Funds</Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          {!session || !session.user ? <SignInButton onClick={() => signIn(undefined, { callbackUrl: '/dashboard' })} label="Sign In" className="text-red-600" /> : null}
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <BalanceView />
-        </NavigationMenuItem>
+        <NavigationLinkButton href={"/"} title={"Home"} />
+        {session && session.user ? (
+          <>
+            <NavigationLinkButton href={"/dashboard"} title={"Dashboard"} />
+            <NavigationLinkButton
+              href={"/dashboard/checkout"}
+              title={"Add Funds"}
+            />
+
+            <NavigationMenuItem>
+              <BalanceView />
+            </NavigationMenuItem>
+          </>
+        ) : (
+          <>
+            <NavigationLinkButton href={"/"} title={"About Us"} />
+            <NavigationLinkButton href={"/"} title={"Contact"} />
+            <NavigationMenuItem>
+              <SignInButton
+                onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
+                label="Sign In"
+              />
+            </NavigationMenuItem>
+          </>
+        )}
+
         <NavigationMenuItem>
           <ModeToggle />
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Profile />
         </NavigationMenuItem>
-
       </NavigationMenuList>
     </NavigationMenu>
   );
